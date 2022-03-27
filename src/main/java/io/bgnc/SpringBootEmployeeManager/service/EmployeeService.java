@@ -37,8 +37,8 @@ public class EmployeeService {
     }
 
     public Optional<Employee> findEmployeeById(Long id){
-        return employeeRepository.findEmployeeById(id)
-                .orElseThrow(()-> new EmployeeNotFoundException("Employee by id "+id+" could not found"));
+        return Optional.ofNullable(employeeRepository.findEmployeeById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee by id " + id + " could not found")));
 
     }
 
